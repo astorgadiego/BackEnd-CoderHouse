@@ -1,0 +1,28 @@
+[
+    {
+        "titulo":"Cebolla",
+        "precio":800,
+        "imagen":"##",
+        "id":1
+    
+    },
+
+
+    {
+        "titulo":"Tomate",
+        "precio":800,
+        "imagen":"##",
+        "id":2
+    
+    },
+
+    {
+        "titulo":"Zanahoria",
+        "precio":800,
+        "imagen":"##",
+        "id":3
+    
+    }
+
+    
+]
