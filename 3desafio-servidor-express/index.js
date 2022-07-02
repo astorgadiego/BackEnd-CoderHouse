@@ -19,7 +19,7 @@ class Contenedor {
             console.log("ACA NO HAY NADA");
         }else{
             console.log("ACA SI HABIA ALGO");
-            let archivoJSON = data.readFileSync( `${this.archivo}`,'utf-8' )  //PASA DE JSON A JS
+            let archivoJSON = data.readFileSync( `${this.archivo}`,'utf-8' )  //LO DEJO EN JSON
             console.log( archivoJSON );
             return archivoJSON
         } 
