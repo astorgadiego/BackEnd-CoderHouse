@@ -30,11 +30,11 @@ router.post('/productos', (req, res) => {
         const productoAGuardar = req.body;
         
 
-        parseInt( productoAGuardar.id )
+        let idAgregado = parseInt( productoAGuardar.id )
 
+        productoAGuardar.id = idAgregado
+        
         console.log( productoAGuardar );
-
-        let idAgregado = productoAGuardar.id
 
         productos.push(productoAGuardar);
 
