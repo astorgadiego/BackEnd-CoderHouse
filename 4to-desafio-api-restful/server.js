@@ -15,7 +15,7 @@ app.use('/api', productos);
      res.sendFile(__dirname + '/public/index.html')
  })
 
-const server = app.listen(8080, () => console.log('Servidor OK en puerto 8080'));  // INICIO LA APLICACION
+const server = app.listen(8080, () => console.log('Servidor OK en puerto 8080 siuhhh'));  // INICIO LA APLICACION
 
 
 

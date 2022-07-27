@@ -90,4 +90,4 @@ router.delete( '/productos/:id' , (req, res) => {
 
 
 
-module.exports= router  //EXPRTO EL MODULO ROUTER PARA PODER UTILIZARLO EN EL SERVER  
+module.exports= router  //EXPRTO EL MODULO ROUTER PARA PODER UTILIZARLO EN EL SERVER
