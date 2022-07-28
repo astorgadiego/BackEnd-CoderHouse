@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/diegoastorga98/BackEnd-CoderHouse#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
     "multer": "^1.4.5-lts.1"
   }
 }
