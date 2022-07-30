@@ -10,7 +10,7 @@ const HandleBar = require('express-handlebars'); //CARGO EL MODULO DE EXPRESS-HA
 //LCONFIGURACION DE HANDLEBARS
 app.engine ( 'hbs' ,   //NOMBRE REFERENCIA A LA PLANTILLA (SE USA LUEGO EN SET) 
         HandleBar.engine ( {  //FUNCION DE CONFIGURACION DE HANDLEBARS
-                        extname: '.hbs', //EXTENSION A UTILIZAR, EN LUGAR DE .HANDLEBARS POR DEFECTO
+                        extname: 'hbs', //EXTENSION A UTILIZAR, EN LUGAR DE .HANDLEBARS POR DEFECTO
                         defaultLayout: 'index.hbs', //PLANTILLA PRINCIPAL
                         layoutsDir: __dirname + '/views/layouts', //RUTA A LA PLANTILLA PRINCIPAL
                         partialsDir: __dirname + '/views/partials' //RUTA LA PLANTILLA PARCIALES
