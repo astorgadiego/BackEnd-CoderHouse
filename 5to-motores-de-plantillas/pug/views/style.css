@@ -1,0 +1,43 @@
+body{
+    background-color: aqua;
+}
+table{
+    border: 1px solid black;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+th, tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-style: italic;
+}
+div{
+    text-align: center;
+}
+
+.form-group{
+    background-color: rgb(142, 226, 131);
+}
+.form-group label{
+    text-transform: uppercase;
+    color: rgb(14, 22, 6);
+}
+.estilo-formulario{
+    margin-left: 10rem;
+    margin-right: 10rem;    
+}
+
+#h3{
+    color: red;
+    text-align: center;
+    font-style: italic;
+    text-transform: capitalize;
+    font-size: 2rem;
+}

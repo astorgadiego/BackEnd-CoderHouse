@@ -1,25 +1,27 @@
-<!-- historial table -->
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Imagen</th>
-        </tr>
-    </thead>
-    <tbody>
-         <!--if no datos--> 
-        {{#if (productos.length === 0)}} { 
-            <tr>
-                <td colspan="3">No hay datos</td>
-            </tr>
-        }{{#else}}{
-        
-        {{#for (let i = 0; i < productos.length; i++)}} { 
-            <tr>
-                <td>datos[i].nombre</td>
-                <td>datos[i].apellido</td>
-                <td>datos[i].edad</td>
-            </tr>
-         } }
-    </tbody>
+{{#each ListadeProductos}}
+    <h3>{{ nombre_del_producto }}: $ {{ precio }}</h3>
+{{/each}}
+
+    <h1>Tabla de Productos</h1>
+    <table>
+            <thead>
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            {{#each ListadeProductos}} 
+                <tr>
+                    <td>{{nombre_del_producto}}</td>
+                    <td>${{precio}}</td>
+                    <td>{{imagen}}</td>
+                </tr>
+            {{/each}}
+    </table>
+
+
+<a href="http://localhost:8080">
+    <button onclick="retu" type="submit" class="btn btn-primary">Volver al Formulario</button>
+</a>
+            

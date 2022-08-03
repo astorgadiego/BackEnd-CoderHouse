@@ -1,25 +1,32 @@
 <!-- historial table -->
+<h1>Tabla de productos</h1>
+<link rel="stylesheet" href="ejemplo1.css">
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Nombre</th>
+            <th scope="col">Producto</th>
             <th scope="col">Precio</th>
-            <th scope="col">Foto</th>
+            <th scope="col">Imagen</th>
         </tr>
     </thead>
     <tbody>
-        <!-- if no productos -->
-        <% if (productos.length === 0) { %>
+        <!-- if no ListadeProductos -->
+        <% if (ListadeProductos.length === 0) { %>
             <tr>
-                <td colspan="3">No hay productos</td>
+                <td colspan="3" id="no_hay">No hay Productos</td>
             </tr>
         <% }else{ %>
         
-        <% for (let i = 0; i < productos.length; i++) { %>
+        <% for (let i = 0; i < ListadeProductos.length; i++) { %>
             <tr>
-                <td><%=productos[i].nombre%></td>
-                <td><%=productos[i].apellido%></td>
-                <td><%=productos[i].edad%></td>
+                <td><%=ListadeProductos[i].nombre_del_producto%></td>
+                <td><%="$"+ListadeProductos[i].precio%></td>
+                <td><%=ListadeProductos[i].logo%></td>
             </tr>
         <% } } %>
     </tbody>
+</table>
+
+<a href="http://localhost:8080">
+    <button onclick="retu" type="submit" class="btn btn-primary">Volver al Formulario</button>
+</a>

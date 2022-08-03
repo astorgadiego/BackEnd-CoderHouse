@@ -1,0 +1,29 @@
+html 
+    head 
+        title= "Tabla de Productos"
+    style 
+        include style.css 
+      
+    body
+        h3= nombre_del_producto
+        h3= '$' + precio
+        if ListadeProductos.length == 0
+            h3(id="h3") No hay Productos
+        else 
+            h1 Aca hay algo
+            h1 Lista de Productos
+            div 
+                table
+                    thead 
+                         tr 
+                            th Titulo 
+                            th Precio 
+                            th Imagen
+                    each val in  ListadeProductos 
+                        tr
+                            th= 'Titulo: '+ val.nombre_del_producto
+                            th= 'Precio: $'+ val.precio
+                            th= '##Logo## '+ val.imagen           
+        
+        a(href="http://localhost:8080")
+            button(onclick="retu" type="submit" class="btn btn-primary") Volver al Formulario     

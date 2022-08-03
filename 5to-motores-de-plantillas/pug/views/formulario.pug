@@ -1,0 +1,19 @@
+html    
+    head 
+        title= "Formulario"
+    style 
+        include style.css
+    body 
+        h1 Formulario con PUG
+        div( class="estilo-formulario") 
+            form(action="/productos", method="post")
+                div( class="form-group") 
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="nombre_del_producto" placeholder="Titulo">
+                div( class="form-group")     
+                    <label for="precio">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio">  
+                div( class="form-group") 
+                    <label for="foto">Foto</label>
+                    <input type="image" class="form-control" id="foto" name="foto" placeholder="Foto">
+                <button onclick="retu" type="submit" class="btn btn-primary">Enviar</button>

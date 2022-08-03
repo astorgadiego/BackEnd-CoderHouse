@@ -1,0 +1,30 @@
+body{
+     background-color: #1776ad;
+}
+h1{
+    text-align: center;
+    color: purple;
+    font-style: italic;
+}
+th, tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table{
+    border: 1px solid black;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+form {
+    margin: 0 auto;
+    width: 50%;
+}
+#no_hay{
+    color: rgb(12, 2, 2);
+    font-size: larger;
+    text-transform: uppercase;
+}

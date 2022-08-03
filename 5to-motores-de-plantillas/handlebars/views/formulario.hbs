@@ -1,19 +1,29 @@
 <!-- form for nombre, precio e imagen del producto -->
-    <form action="/productos" method="post">
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-                <label for="precio">Precio</label>
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio">
-            </div>
-            <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="image" class="form-control" id="foto" name="foto" placeholder="Foto">
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+    <h1 class="clase">Formulario con Handlebars</h1>
+    <div class="estilo-formulario">    
+        <form id="form" action="/productos" method="post">
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="nombre_del_producto" placeholder="Titulo">
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio">
+                </div>
+                <div class="form-group">
+                    <label for="foto">Foto</label>
+                    <input type="image" class="form-control" id="foto" name="imagen" placeholder="Foto">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button onclick="retu" type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+                 {{!-- <a href="http://localhost:8080/productos" class="btn" >
+                            <button onclick="" type="submit" class="btn btn-primary">Enviar</button>
+                </a>  --}}
         </form>
+    </div>
+    
 
-        <br>     
+    <br>
+             
