@@ -1,5 +1,5 @@
 body{
-    background-color: blueviolet;
+    background-color: rgb(214, 194, 214);
 }
 
 .clase{
@@ -50,4 +50,21 @@ h1{
         color: red;
         text-align: center;
         font-style: italic;
+}
+
+.email{
+    color: blue;
+}
+
+.mensaje{
+    color: green;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 125%;
+}
+.hora{
+    font-weight: bold;
+    color: brown;
+    text-transform: uppercase;
 }

@@ -27,13 +27,23 @@ app.get ( '/', ( req, res)=>{
 
 const ListadeProductos =   [];
 const mensaje = "Hola Mundo"
+const Arraymensajes = [];
 
 io.on ('connection', ( socket ) =>{
     console.log("Un usuario se ha conectado");
+    socket.emit("Tabla de Productos", ListadeProductos )//ACA LE ENVIAMOS LOS PRODUCTOS QUE ESTAN A ESE CLIENTE NUEVO!!
+    socket.emit("ID de mensaje", Arraymensajes)//ACA LE ENVIAMOS LOS MENSAJES QUE ESTAN A ESE CLIENTE NUEVO!!
+
     socket.on ( 'guardarProducto', prod => {
         ListadeProductos.push( prod );
         io.sockets.emit ( 'ProductoActual', ListadeProductos )//-->ACA LO ENVIA TODOS LOS USUARIOS
     })
+
+    socket.on ( "nuevo-mensaje", data=>{ 
+        Arraymensajes.push( data )
+        io.sockets.emit("Mensajes Actualizados", Arraymensajes)
+     });
+
 });
 
 //EL SERVIDOR FUNCIONANDO EN EL PUERTO 3000

@@ -38,7 +38,17 @@
         </form>
     </div>
 
-    <table id="productosRecibidos" ></table>
+    <table id="productosRecibidos"></table>
+
+    <form onsubmit= "addMessage(this)">
+        <p>Centro de Mensajes</p>
+        <input type="email"  id="email" placeholder="Ingrese su Mail">
+        <input type="text" id="mensaje" placeholder="Ingrese su Mensaje">
+        <input type="submit" value="Enviar" id="enviar">
+    </form>
+
+    <div id="mensajesrecibidos" ></div>
+    
 
 
 </body>
