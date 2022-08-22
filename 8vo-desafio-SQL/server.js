@@ -31,7 +31,8 @@ const Diego = require ('./contenedor')
 const ListadeProductos =   [];
 const mensaje = "Hola Mundo"
 const Arraymensajes = [];
-
+Diego.crearTabla();
+Diego.CrearMensajes();
 
 
 io.on ('connection', ( socket ) =>{
@@ -40,18 +41,20 @@ io.on ('connection', ( socket ) =>{
     socket.emit("Tabla de Productos", ListadeProductos )//ACA LE ENVIAMOS LOS PRODUCTOS QUE ESTAN A ESE CLIENTE NUEVO!!
     socket.emit("ID de mensaje", Arraymensajes)//ACA LE ENVIAMOS LOS MENSAJES QUE ESTAN A ESE CLIENTE NUEVO!!
     socket.on ( 'guardarProducto', prod => {
-        //Diego.crearTabla();
-        //Diego.InsertarenTabla();
+        Diego.InsertarenTabla( prod );
         ListadeProductos.push( prod );
         io.sockets.emit ( 'ProductoActual', ListadeProductos )//-->ACA LO ENVIA TODOS LOS USUARIOS
     })
     
     socket.on ( "nuevo-mensaje", data=>{ 
+        Diego.InsertarenMensajes( data );
         Arraymensajes.push( data )
         io.sockets.emit("Mensajes Actualizados", Arraymensajes)
      });
 
 });
 
-//EL SERVIDOR FUNCIONANDO EN EL PUERTO 3000
+//EL SERVIDOR FUNCIONANDO EN EL PUERTO 8080
 const server = httpServer.listen(PORT, () => console.log(`Servidor OK en puertO : ${PORT} `));  // INICIO LA APLICACION
+
+server.on( "Error", err => console.log(` Error en el servidor: ${err} `));
