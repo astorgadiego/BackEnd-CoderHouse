@@ -120,7 +120,7 @@ class Contenedor {
     //     this.configuracion( this.tabla ).insert(articulos)
     //     .then(()=>{console.log('articulos inserted');})      
     //     .catch(err=> { console.log(err);});
-    //     .finally( () => { this.configuracion.destroy(); });
+    //     //.finally( () => { this.configuracion.destroy(); });
     
 
     //     // catch(err){
@@ -128,7 +128,7 @@ class Contenedor {
     //     // }    
     
     // }
-    InsertarenTabla  ( prod )  {
+    async InsertarenTabla  ( prod )  {
         const articulosDePrueba = [
             {
                 titulo: 'Coca-Cola',
@@ -161,7 +161,7 @@ class Contenedor {
                 imagen: 10
             }
         ];
-        this.configuracion( this.tabla ).insert( prod )
+        await this.configuracion( this.tabla ).insert( prod )
         .then(() => {
             console.log('articulos inserted');
         })
@@ -194,38 +194,7 @@ class Contenedor {
     }
 
     InsertarenMensajes  ( data )  {
-        const mensajesDePrueba = [
-            {
-                texto: 'Coca-Cola',
-                //codigo: 'COCA-COLA',
-                hora: 2.5,
-                email: 'd@gmail.com'
-            },
-            {
-                texto: 'Fanta',
-                //codigo: 'FANTA',
-                hora: 2.5,
-                email: 'd@gmail.com'
-            },
-            {
-                texto: 'Sprite',
-                //codigo: 'SPRITE',
-                hora: 2.5,
-                email: 'd@gmail.com'
-            },
-            {
-                texto: 'Pepsi',
-                //codigo: 'PEPSI',
-                hora: 2.5,
-                email: 'd@gmail.com'
-            },
-            {
-                texto: '7Up',
-                //codigo: '7UP',
-                hora: 2.5,
-                email: 'd@gmail.com'
-            }
-        ];
+        
         this.sqliteconfig( this.tabla ).insert( data )
         .then(() => {
             console.log('nuevo mensaje agregado');
@@ -235,8 +204,32 @@ class Contenedor {
         })
     }
 
+    async MostrarArticulosMariaDB ( ){
+        await this.configuracion.from( `${this.tabla}` ).select( '*' )
+            .then(rows => {
+                console.log("Registro de Productos:",rows);
+                })
+            .catch(err => {
+                console.log(err);
+                })
+            
+    }
+
+
+
+    MostrarMensajesSQLITE ( ){
+        this.sqliteconfig.from( `${this.tabla}` ).select( '*' )
+            .then(rows => {
+                console.log("Registro de Mensajes:", rows);
+                })
+            .catch(err => {
+                console.log(err);
+                })
+    }
+
+
 }
 
-const Diego = new Contenedor ( { knex } = require ('./configuracion') , 'tablaProductos_8vo_desafio', { knexsqlite } = require ('./configuracionsqlite') )
+const Diego = new Contenedor ( { knex } = require ('./configuracionMariaDB') , 'tablaProductos_8vo_desafio', { knexsqlite } = require ('./configuracionsqlite') )
 
 module.exports = Diego;

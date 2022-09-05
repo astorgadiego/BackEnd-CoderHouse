@@ -82,7 +82,7 @@ class Contenedor {
                 //console.log(arraySTRING);
                 await data.promises.writeFile(  `${this.archivo}`, `${ arraySTRING }` )
                 console.log("El ultimo id asignado es : ", idAsignado);
-                return idAsignado
+                return idAsignado   
                 
             } 
 

@@ -40,15 +40,17 @@ io.on ('connection', ( socket ) =>{
     console.log("Un usuario se ha conectado");
     socket.emit("Tabla de Productos", ListadeProductos )//ACA LE ENVIAMOS LOS PRODUCTOS QUE ESTAN A ESE CLIENTE NUEVO!!
     socket.emit("ID de mensaje", Arraymensajes)//ACA LE ENVIAMOS LOS MENSAJES QUE ESTAN A ESE CLIENTE NUEVO!!
-    socket.on ( 'guardarProducto', prod => {
+    socket.on ( 'guardarProducto', (prod) => {
         Diego.InsertarenTabla( prod );
         ListadeProductos.push( prod );
+        Diego.MostrarArticulosMariaDB();  //--> MUESTRO TABLA DE PRODUCTOS POR MARIADB
         io.sockets.emit ( 'ProductoActual', ListadeProductos )//-->ACA LO ENVIA TODOS LOS USUARIOS
     })
     
     socket.on ( "nuevo-mensaje", data=>{ 
         Diego.InsertarenMensajes( data );
         Arraymensajes.push( data )
+        Diego.MostrarMensajesSQLITE(); //--->MUESTRO TABLA DE MENSAJES POR SQLITE ( ES ASINCRONO A VECES NO LO MUESTRA )
         io.sockets.emit("Mensajes Actualizados", Arraymensajes)
      });
 
