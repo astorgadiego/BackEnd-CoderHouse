@@ -9,11 +9,12 @@ const foto = document.getElementById ('foto')
 let fecha = new Date();
 
 
+
 function addMessage( e ) {
 
     const NuevosMensajes = {
         id: 'Mensajes',
-        autor :[ {
+        autor : {
             id: document.getElementById( "email" ).value,
             nombre: document.getElementById ( "nombre" ).value,
             apellido: document.getElementById ( "apellido" ).value,
@@ -21,7 +22,7 @@ function addMessage( e ) {
             avatar: document.getElementById ( "avatar" ).value,
             hora : `${fecha}`
             }
-        ],
+        ,
         texto : { id: 1 ,  texto:document.getElementById ( "mensaje" ).value } 
          
     };
@@ -41,10 +42,16 @@ function MostrarMensajes( Arraymensajes ) {
 
 }
 
+function MostrarPorcentaje ( porcentajeDeCompresion ) {
+    const html = `<div>%${porcentajeDeCompresion}</div>`
+    document.getElementById("porcentaje").innerHTML = html
+}
+
 
 //CADA MENSAJE NUEVO SE ENVIA AL SERVIDOR.CON LA ESTRUCTURA QUE SE PIDE. EL NOMBRE DEL EVENTO ES INPUTEXT
 
 
 socket.on ( "Tabla de Productos", ListadeProductos => { renderizador ( ListadeProductos ) } )
 
-socket.on ( "ID de mensaje", Arraymensajes=>{  MostrarMensajes ( Arraymensajes )  } )
+socket.on ( "ID de mensaje", Arraymensajes=> MostrarMensajes ( Arraymensajes ) )
+socket.on ( "porcentaje", porcentajeDeCompresion=> MostrarPorcentaje ( porcentajeDeCompresion ) )
