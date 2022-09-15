@@ -26,7 +26,7 @@ app.use(session( {
            //EN ATLAS CONNECT APP: ASEGURATE DE CAMBIAR A 2.2.12: 
            mongoUrl: 'mongodb+srv://Diego1:beto12@cluster0.3dsj157.mongodb.net/?retryWrites=true&w=majority',
            mongoOptions: advancedOptions,
-           ttl: 10,
+           ttl: 60,
            retries: 1
 
      } ) ,
