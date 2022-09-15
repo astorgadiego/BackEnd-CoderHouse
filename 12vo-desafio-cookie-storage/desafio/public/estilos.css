@@ -1,0 +1,17 @@
+#formulario-usuario{
+    display: flex;
+    flex-direction: row;
+}
+
+div{
+    margin-left: auto;
+    margin-left: auto;
+}
+.boton{
+    margin-right: 30rem;
+}
+
+
+body{
+    background-color: aquamarine;
+}
