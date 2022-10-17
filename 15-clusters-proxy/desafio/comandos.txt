@@ -1,0 +1,16 @@
+COMANDOS:
+    FOREVER( SOLO MODO FORK!! EN CLUSTER EXPLOTA TODO): 
+                //forever start server.js fork
+                //forever start server.js cluster
+
+                LISTAS LOS PROCESOS CON FOREVER: forever list 
+                MATAR UN PROCESO: forever stopall       
+                
+    PM2 ( TANTO MODO FORK O MODO CLUSTER ) :
+                MODO FORK:  pm2 start server.js --name="Server1" --watch -- 8080
+                MODO CLUSTER:   pm2 start server.js --name="Server2" --watch -i 2 -- 8080  (MI COMPU SE TRABA SI HAGO ESTE COMANDO)
+                LISTAR PROCESOS: pm2 list
+                FINALIZAR PROCESOS: pm2 delete all
+    
+    NGINX: 
+                LISTAR PROCESOS NGINX: tasklist | grep nginx
