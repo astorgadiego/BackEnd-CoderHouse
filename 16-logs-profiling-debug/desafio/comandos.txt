@@ -1,0 +1,25 @@
+PRENDER EL SERVIDOR EN MODO PROFILER: node --prof server.js
+
+ENTRAMOS A LA RUTA /INFO: curl -X GET "http://localhost:8080/info"
+
+TEST DE CARGA : artillery quick --count 20 -n 50 "http://localhost:8080/info" > CON_console_log.txt
+
+LUEGO DEBEMOS CERRAR EL SERVIDOR PARA PODER ABRIR EL ARCHIVO ENCRIPTADO ISOLATE!!
+
+CAMBIAMOS EL NOMBRE DEL ARCHIVO ENCRIPTADO A bloq-v8.log
+
+HACEMOS LO MISMO PERO SIN EL CONSOLE LOG :
+        node --prof server.js
+
+        curl -X GET "http://localhost:8080/info"
+
+        artillery quick --count 20 -n 50 "http://localhost:8080/info" > SIN_console_log.txt
+
+CAMBIAMOS EL NOMBRE DEL ARCHIVO ENCRIPTADO A no-bloq-v8.log
+
+
+DECODIFICAMOS LOS ARCHIVOS:
+
+        node --prof-process bloq-v8.log > CON_console_log.txt ---> ARCHIVO DESENCRIPTADO
+
+        node --prof-process no-bloq-v8.log > SIN_console_log.txt  ---> ARCHIVO DESENCRIPTADO

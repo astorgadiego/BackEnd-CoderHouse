@@ -37,6 +37,7 @@ app.use(express.json());   //ESTAS DOS LINEAS SON NECESARIAS PARA PODER USAR GET
 app.use(express.urlencoded({ extended: true })); //ARRIBA DEL VIEW ENGINE
 
 //ESTO ES IMPORTANTE PARA PODER USAR EL RES.RENDER!!! 
+app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
@@ -225,32 +226,57 @@ app.get('/datos', isAuth, (req, res) => {
 
 //---------API-RANDOMS ------------
 
- app.get('/api/randoms', (req,res) => { 
-    let { url } = req
-    //console.log( 'La URL se captura de tipo : ', typeof(url) ); 
-    console.log(url);
-    if (url == '/api/randoms?cant=20') {
-      const { cant } = req.query
-      console.log(cant);
-      
-      const funcionRandoms = fork('child.js')
+app.get('/api/randoms', (req,res) => { 
+  let { url } = req
+  //console.log( 'La URL que captura de tipo : ', typeof(url) ); 
+  console.log(' La url es:  ',url);
 
-      funcionRandoms.on('mensaje', msg =>{
-        funcionRandoms.send('cant')
-        console.log("Y esto recibo de Mensaje del HIjo", msg);
+  let { cant }= req.query
+  //console.log('El tipo de la url es: ', typeof(cant));
+
   
-      })
 
-      //funcionRandoms.send( {llega : "cant"}  )
+
+
+  if (cant !== undefined ) {
+    const funcionRandoms = fork('child2.js')
+    
+    funcionRandoms.send( cant )
+    
+    
+
+    funcionRandoms.on('message', array_objeto =>{
       
-
+  
+      console.log('aaaaa', array_objeto);
+    
       console.log('CON QUERY');
-      res.render('randoms.html')
-    }else {
+      res.render('randoms.html', {array_objeto})
+    })
+    
+
+    
+    
+  }else {
+    console.log('FALTA QUERY');
+    console.log('SE VAN A MOSTRAR 100.000.000 DE NUMEROS');
+
+    const funcionRandoms = fork('child3.js')
+
+    funcionRandoms.send( 100000 )
+    
+    funcionRandoms.on('message', array_objeto =>{
+      
+      console.log('aaaaa', array_objeto);
+    
       console.log('FALTA QUERY');
       res.render('faltaquery.html')
-    }
-     
+
+    })
+
+    
+  }
+   
 })  // Por ej: /randoms?cant=20000
 
 // Hola Diego, tenes que hacer una función que se ejecute la cantidad de veces especificada por req.query 
