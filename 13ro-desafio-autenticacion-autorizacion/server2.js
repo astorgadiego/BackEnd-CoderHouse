@@ -4,6 +4,10 @@ const session = require('express-session')
 const passport = require('passport');
 const { Strategy: LocalStrategy } = require('passport-local');
 
+/* --------------------- SERVER --------------------------- */
+
+const app = express()
+
 /* ------------------ DATABASE -------------------- */
 
 /*---PERSISTENCIA EN MONGO ====*/
@@ -14,7 +18,7 @@ app.use(session( {
   store: MongoStore.create ( { 
          //EN ATLAS CONNECT APP: ASEGURATE DE CAMBIAR A 2.2.12: 
          mongoUrl: 'mongodb+srv://Diego1:beto12@cluster0.3dsj157.mongodb.net/?retryWrites=true&w=majority',
-         mongoOptions: advancedOptions,
+         //mongoOptions: advancedOptions,
          ttl: 60,
          retries: 1
 
@@ -93,9 +97,7 @@ passport.deserializeUser(function (username, done) {
   done(null, usuario);
 });
 
-/* --------------------- SERVER --------------------------- */
 
-const app = express()
 
 /* --------------------- MIDDLEWARE --------------------------- */
 
